@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>basic</title>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- third party libraries -->
+  <script src="/build/acorn.player.libs.min.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/bootstrap.noicons.min.css" />
+  <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.css">
+
+  <!-- acorn libraries -->
+  <script src="/build/acorn.player.min.js"></script>
+  <link rel="stylesheet" href="/lib/acorn-player/acorn.player.css" />
+
+  <style>
+  .acorn-player {
+    margin: 50px auto;
+    height: 400px;
+    width: 600px;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    // setup data to use
+    var data = {
+      'shell': {
+        'shellid': 'acorn.YouTubeShell',
+        'link': 'http://www.youtube.com/watch?v=9bZkp7q19f0',
+        'title': 'Gangam Style',
+        'description': 'Remix of YouTube Video: Gangam Style',
+        'timeStart': 0,
+        'timeTotal': 253,
+        'timeEnd': 253,
+        'thumbnail': 'https://img.youtube.com/vi/9bZkp7q19f0/0.jpg'
+      },
+      'thumbnail': 'https://img.youtube.com/vi/9bZkp7q19f0/0.jpg',
+      'acornid': 'new'
+    };
+
+    // initialize player with link
+    var player = new acorn.player.Player({ data: data });
+
+    // append player to selector
+    player.appendTo('body');
+  </script>
+
+</body>
+</html>
