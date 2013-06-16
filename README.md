@@ -5,14 +5,12 @@ This repository provides a set of working examples to play with.
 
 ## Install
 
-Run:
 
     npm install
 
 
 ## Usage
 
-Run:
 
     grunt server
 
