@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>basic</title>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- third party libraries -->
+  <script src="/build/acorn.player.libs.min.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/bootstrap.noicons.min.css" />
+  <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.css">
+
+  <!-- acorn libraries -->
+  <script src="/build/acorn.player.min.js"></script>
+  <link rel="stylesheet" href="/lib/acorn-player/acorn.player.css" />
+
+  <style>
+  .acorn-player {
+    margin: 50px auto;
+    height: 400px;
+    width: 600px;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    // setup link to use
+    var link = 'http://www.youtube.com/watch?v=9bZkp7q19f0';
+
+    // initialize player with link
+    var player = new acorn.player.Player({ data: link });
+
+    // append player to selector
+    player.appendTo('body');
+  </script>
+
+</body>
+</html>

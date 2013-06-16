@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>acorn-web</title>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- third party libraries -->
+  <script src="/build/acorn.player.libs.min.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/bootstrap.noicons.min.css" />
+  <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.css">
+
+  <!-- acorn libraries -->
+  <script src="/build/acorn.player.min.js"></script>
+  <link rel="stylesheet" href="/lib/acorn-player/acorn.player.css" />
+
+  <style>
+  body {
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  input#acornid {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .acorn-player-container {
+    margin: 50px;
+  }
+
+  .acorn-player {
+    margin: 0 auto;
+    height: 400px;
+    width: 600px;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+  var acornPlayer;
+  var acornModel;
+
+  var loadAcornId = function (acornid) {
+    acornid = acornid.trim();
+
+    // only load valid acornids
+    if (!acorn.util.isAcornid(acornid))
+      throw new Error("loadAcorn('" + acornid + "'): invalid acornid");
+
+    // setup acorn to use
+    acornModel = acorn(acornid);
+
+    // if acornid is new, show it.
+    if (acornid == 'new') {
+      showAcorn(acornModel);
+      return;
+    }
+
+    // fetch acorn. show it on success
+    acornModel.fetch({
+      success: function() {
+        console.log(acornModel.toJSON());
+        showAcorn(acornModel);
+      },
+      error: function() {
+        console.log('error');
+      }
+    });
+  };
+
+  var showAcorn = function(model) {
+    // show acornid in ui
+    window.location.hash = '#' + model.acornid()
+    $('input#acornid').val(model.acornid())
+
+    // destroy old player view
+    $('.acorn-player-container').empty();
+
+    // setup player with given acorn
+    acornPlayer = new acorn.player.Player({model: model});
+    acornPlayer.appendTo('.acorn-player-container');
+  };
+
+  $(document).ready(function() {
+    // if we loaded page with #acornid, use it
+    if (window.location.hash) {
+      loadAcornId(window.location.hash.substr(1));
+    }
+
+    // setup change listener.
+    $('input#acornid').change(function() {
+      loadAcornId($('input#acornid').val());
+    });
+  });
+
+  </script>
+
+  acornid:<br />
+  <input type="text" id="acornid" placeholder="acornid" value="" />
+  <div class="acorn-player-container"></div>
+
+
+  Examples:<br />
+  <a href="javascript:loadAcornId('xwkbokwxti');">xwkbokwxti</a><br />
+  <a href="javascript:loadAcornId('tobfypbkyw');">tobfypbkyw</a><br />
+  <a href="javascript:loadAcornId('jhkuwgdsit');">jhkuwgdsit</a><br />
+
+</body>
+</html>
