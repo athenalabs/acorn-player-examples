@@ -1,0 +1,29 @@
+{
+  "name": "acorn-player-examples",
+  "description": "multimedia remixer examples",
+  "version": "0.0.1",
+  "homepage": "https://github.com/athenalabs/acorn-player-examples",
+  "author": "Athena Team",
+  "contributors": [
+    {
+      "name": "Juan Batiz-Benet",
+      "email": "juan@athena.ai"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/athenalabs/acorn-player-examples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/athenalabs/acorn-player-examples/issues"
+  },
+  "scripts": {
+    "test": "grunt --config Gruntfile.coffee test"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-coffee": "0.7.0",
+    "grunt-contrib-clean": "~0.4.1"
+  },
+  "readmeFilename": "README.md"
+}
