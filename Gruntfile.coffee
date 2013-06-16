@@ -28,10 +28,19 @@ module.exports = (grunt) ->
 
     clean: ['build']
 
+    connect:
+      server:
+        options:
+          port: 9001
+          keepalive: true
+
+
   # load tasks
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
 
   # default task
   grunt.registerTask 'default', ['uglify']
+  grunt.registerTask 'server', ['uglify', 'connect:server']
