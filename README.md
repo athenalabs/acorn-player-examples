@@ -18,5 +18,5 @@ Go to [http://localhost:9001/examples/](http://localhost:9001/examples/)
 
 ## Examples
 
-* basic: loads a youtube video with acorn-player
-* acorn-web: loads any stored acorn (via its acornid) from the web-service
+* [basic](http://localhost:9001/examples/basic.html): loads a youtube video with acorn-player
+* [acorn-web](http://localhost:9001/examples/acorn-web.html): loads any stored acorn (via its acornid) from the web-service
