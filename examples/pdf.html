@@ -23,6 +23,7 @@
     height: 400px;
     width: 600px;
   }
+
   </style>
 
 </head>
@@ -34,7 +35,11 @@
     var link = 'http://static.benet.ai/t/cs109-athena.pdf';
 
     // initialize player with link
-    var player = new acorn.player.Player({ data: link });
+    var player = new acorn.player.Player({
+      data: link,
+      chromeless: true,
+      autoplay: true
+    });
 
     // append player to selector
     player.appendTo('body');
